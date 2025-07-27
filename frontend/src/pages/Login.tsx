@@ -19,8 +19,11 @@ import { Checkbox } from "@/components/ui/checkbox";
 import SupportIcon from "@/components/icons/SupportIcon";
 import React, { useState } from "react";
 import { login } from "@/api/auth";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
+  const navigate = useNavigate();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -37,6 +40,7 @@ export default function Login() {
       const res = await login(data);
       console.log("JWT Token:", res.token); // ✅ نطبع التوكن هنا
       localStorage.setItem("token", res.token);
+      navigate("/onboarding");
       setError("");
     } catch (err: any) {
       console.error("Login failed:", err);
