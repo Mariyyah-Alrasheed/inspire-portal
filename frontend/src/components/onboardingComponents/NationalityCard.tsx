@@ -1,10 +1,10 @@
 import { useFormContext } from "react-hook-form";
 import ReusableCard from "../ReusableCard";
 import CustomSelect from "../custom/CustomSelect";
-import type { NationalitySchemaType } from "@/schemas/onboardingSchemas/nationalitySchema";
+import type { RootSchemaType } from "@/schemas/onboardingSchemas/rootSchema";
 
 export default function NationalityCard() {
-  const { control } = useFormContext<NationalitySchemaType>();
+  const { control } = useFormContext<RootSchemaType>();
 
   const countryOptions = [
     { label: "Saudi Arabia", value: "saudi_arabia" },
@@ -23,21 +23,21 @@ export default function NationalityCard() {
     >
       <CustomSelect
         label="Country of Birth"
-        name="countryOfBirth"
+        name="nationality.countryOfBirth"
         control={control}
         options={countryOptions}
         placeholder="Select your birth country"
       />
       <CustomSelect
         label="Current Nationality"
-        name="currentNationality"
+        name="nationality.currentNationality"
         control={control}
         options={countryOptions}
         placeholder="Select your current nationality"
       />
       <CustomSelect
         label="Second Nationality"
-        name="secondNationality"
+        name="nationality.secondNationality"
         control={control}
         options={countryOptions}
         placeholder="Select your second nationality"

@@ -48,7 +48,7 @@ export default function CustomSelect<T extends FieldValues>({
           )}
           <Select
             onValueChange={field.onChange}
-            value={field.value}
+            value={field.value || ""}
             defaultValue={field.value}
           >
             <FormControl>

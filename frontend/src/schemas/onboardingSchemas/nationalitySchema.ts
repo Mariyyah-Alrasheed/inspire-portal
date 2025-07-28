@@ -7,7 +7,6 @@ const countryValues = [
   "india",
   "pakistan",
   "egypt",
-  // أضف أو عدل حسب احتياجك
 ] as const;
 
 export const nationalitySchema = z.object({

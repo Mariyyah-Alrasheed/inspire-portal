@@ -22,7 +22,7 @@ export default function ReusableCard({
   footer,
 }: ReusableCardProps) {
   return (
-    <Card className="w-full max-w-xl bg-[#FCFCFC] text-left border border-[#EFF1F5] m-4">
+    <Card className="w-full max-w-xl bg-[#FCFCFC] text-left border border-[#EFF1F5] m-4 mt-8 rounded-lg shadow-md">
       <CardHeader>
         <CardTitle>{title}</CardTitle>
         {description && <CardDescription>{description}</CardDescription>}

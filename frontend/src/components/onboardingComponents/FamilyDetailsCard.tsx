@@ -4,10 +4,11 @@ import CustomInput from "../custom/CustomInput";
 import CustomSelect from "../custom/CustomSelect";
 
 import CustomRadioGroup from "../custom/CustomRadioGroup";
+import type { RootSchemaType } from "@/schemas/onboardingSchemas/rootSchema";
 // import { register } from "module";
 
 export default function FamilyDetailsCard() {
-  const { control } = useFormContext();
+  const { control } = useFormContext<RootSchemaType>();
 
   return (
     <>
@@ -17,14 +18,14 @@ export default function FamilyDetailsCard() {
       >
         {/* Father's Name */}
         <CustomInput
-          name="fatherName"
+          name="familyDetails.fatherName"
           control={control}
           label="Father’s Name"
           placeholder="Enter Father’s name"
         />
         {/* Mother's Name */}
         <CustomInput
-          name="motherName"
+          name="familyDetails.motherName"
           control={control}
           label="Mother’s Name"
           placeholder="Enter Mother’s name"
@@ -32,7 +33,7 @@ export default function FamilyDetailsCard() {
         {/* Family Member in Inspire */}
         <CustomRadioGroup
           label="Family member in Inspire?"
-          name="familyMemberInInspire"
+          name="familyDetails.familyMemberInInspire"
           control={control}
           options={[
             { label: "Yes", value: "yes" },
@@ -42,7 +43,7 @@ export default function FamilyDetailsCard() {
         {/* Marital Status */}
         <CustomSelect
           label="Marital Status"
-          name="maritalStatus"
+          name="familyDetails.maritalStatus"
           control={control}
           options={[
             { label: "Single", value: "single" },

@@ -3,7 +3,8 @@ import CustomInput from "../custom/CustomInput";
 import CustomSelect from "../custom/CustomSelect";
 import ReusableCard from "../ReusableCard";
 import CustomCalendar from "../custom/CustomCalendar";
-import type { PersonalInfoSchemaType } from "@/schemas/onboardingSchemas/personalInfoSchema";
+// import type { PersonalInfoSchemaType } from "@/schemas/onboardingSchemas/personalInfoSchema";
+import type { RootSchemaType } from "@/schemas/onboardingSchemas/rootSchema";
 
 // type PersonalInfo = {
 //   title: string;
@@ -14,7 +15,7 @@ import type { PersonalInfoSchemaType } from "@/schemas/onboardingSchemas/persona
 // };
 
 export default function PersonalInfoCard() {
-  const { control } = useFormContext<PersonalInfoSchemaType>();
+  const { control } = useFormContext<RootSchemaType>();
 
   return (
     <ReusableCard
@@ -23,7 +24,7 @@ export default function PersonalInfoCard() {
     >
       <CustomSelect
         label="Title"
-        name={"title"}
+        name="personalInfo.title"
         control={control}
         options={[
           { label: "Ms.", value: "ms" },
@@ -32,26 +33,26 @@ export default function PersonalInfoCard() {
         placeholder="e.g.Ms"
       />
       <CustomInput
-        name="fullNameEnglish"
+        name="personalInfo.fullNameEnglish"
         control={control}
         label="Full Name in English"
         placeholder="Enter full name"
       />
       <CustomInput
-        name="fullNameOriginal"
+        name="personalInfo.fullNameOriginal"
         control={control}
         label="Full Name in Original Language"
         placeholder="Enter full name"
       />
       <CustomCalendar
         label="Date of Birth"
-        name="dateOfBirth"
+        name="personalInfo.dateOfBirth"
         control={control}
         description="Your date of birth is used to calculate your age."
       />
 
       <CustomInput
-        name="placeOfBirth"
+        name="personalInfo.placeOfBirth"
         control={control}
         label="Place of Birth"
         placeholder="Enter place of birth"

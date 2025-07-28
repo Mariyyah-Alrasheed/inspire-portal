@@ -6,8 +6,8 @@ import { familyDetailsSchema } from "./familyDetailsSchema";
 
 export const rootSchema = z.object({
   personalInfo: personalInfoSchema,
+  familyDetails: familyDetailsSchema,
   nationality: nationalitySchema,
   cultureLanguage: cultureLanguageSchema,
-  familyDetails: familyDetailsSchema,
 });
 export type RootSchemaType = z.infer<typeof rootSchema>;

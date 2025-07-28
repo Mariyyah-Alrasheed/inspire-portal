@@ -2,9 +2,10 @@ import { useFormContext } from "react-hook-form";
 import ReusableCard from "../ReusableCard";
 import CustomSelect from "../custom/CustomSelect";
 import CustomMultiSelect from "../custom/CustomMultiSelect";
+import type { RootSchemaType } from "@/schemas/onboardingSchemas/rootSchema";
 
 export default function CultureLanguageCard() {
-  const { control } = useFormContext();
+  const { control } = useFormContext<RootSchemaType>();
 
   const religionOptions = [
     { label: "Islam", value: "islam" },
@@ -31,13 +32,13 @@ export default function CultureLanguageCard() {
     >
       <CustomSelect
         label="Religion"
-        name="religion"
+        name="cultureLanguage.religion"
         control={control}
         options={religionOptions}
         placeholder="Select your religion"
       />
       <CustomMultiSelect
-        name="spokenLanguages"
+        name="cultureLanguage.spokenLanguages"
         control={control}
         label="Spoken Languages (At least 1)"
         placeholder="Select language(s)"

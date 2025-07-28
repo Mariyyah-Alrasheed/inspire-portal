@@ -10,7 +10,16 @@ import NationalityCard from "@/components/onboardingComponents/NationalityCard";
 import CultureLanguageCard from "@/components/onboardingComponents/CultureLanguageCard";
 import { rootSchema } from "@/schemas/onboardingSchemas/rootSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
+// import { personalInfoSchema } from "@/schemas/onboardingSchemas/personalInfoSchema";
 export default function Onboarding() {
+  // export const rootSchema = z.object({
+  //   personalInfo: personalInfoSchema,
+  //   nationality: nationalitySchema,
+  //   cultureLanguage: cultureLanguageSchema,
+  //   familyDetails: familyDetailsSchema,
+  // });
+  // export type RootSchemaType = z.infer<typeof rootSchema>;
+
   const methods = useForm({
     resolver: zodResolver(rootSchema),
     defaultValues: {
@@ -18,8 +27,14 @@ export default function Onboarding() {
         title: undefined,
         fullNameEnglish: "",
         fullNameOriginal: "",
-        dob: "",
+        dateOfBirth: undefined,
         placeOfBirth: "",
+      },
+      familyDetails: {
+        fatherName: "",
+        motherName: "",
+        familyMemberInInspire: undefined,
+        maritalStatus: undefined,
       },
       nationality: {
         countryOfBirth: undefined,
@@ -30,18 +45,13 @@ export default function Onboarding() {
         religion: undefined,
         spokenLanguages: [],
       },
-      familyDetails: {
-        fatherName: "",
-        motherName: "",
-        familyMemberInInspire: undefined,
-        maritalStatus: undefined,
-      },
     },
   });
   const onSubmit = (data: any) => {
     console.log("Form Data:", data);
     console.log("Personal Info:", data.personalInfo);
     console.log("formValues:", methods.getValues());
+    console.log("Form Errors:", methods.formState.errors);
   };
   return (
     <>
@@ -96,7 +106,11 @@ export default function Onboarding() {
                   <FamilyDetailsCard />
                   <NationalityCard />
                   <CultureLanguageCard />
-                  <Button type="submit">submit</Button>
+                  <Button className="w-full my-8" type="submit">
+                    submit
+                  </Button>
+                  {/* <pre>{JSON.stringify(methods.formState.errors, null, 2)}</pre>
+                  <pre>{JSON.stringify(methods.getValues(), null, 2)}</pre> */}
                 </form>
               </FormProvider>
             </main>
