@@ -10,8 +10,11 @@ import NationalityCard from "@/components/onboardingComponents/NationalityCard";
 import CultureLanguageCard from "@/components/onboardingComponents/CultureLanguageCard";
 import { rootSchema } from "@/schemas/onboardingSchemas/rootSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
+
+import { useNavigate } from "react-router-dom";
 // import { personalInfoSchema } from "@/schemas/onboardingSchemas/personalInfoSchema";
 export default function Onboarding() {
+  const navigate = useNavigate();
   // export const rootSchema = z.object({
   //   personalInfo: personalInfoSchema,
   //   nationality: nationalitySchema,
@@ -52,6 +55,10 @@ export default function Onboarding() {
     console.log("Personal Info:", data.personalInfo);
     console.log("formValues:", methods.getValues());
     console.log("Form Errors:", methods.formState.errors);
+    // You can handle the form submission here, e.g., send data to an API
+    localStorage.setItem("onboardingData", JSON.stringify(data));
+    // Optionally, redirect or show a success message
+    navigate("/dashboard"); // Use this if you want to navigate without reloading the page
   };
   return (
     <>
