@@ -104,7 +104,7 @@ const items = [
     url: "/dashboard/health-insurance",
     icon: Heart,
   },
-  { title: "Travel Requests", url: "/dashboard/travel-requests", icon: Plane },
+  { title: "Travel Requests", url: "/dashboard/travel", icon: Plane },
 
   { title: "Tasks", url: "/dashboard/tasks", icon: CheckSquare },
   { title: "Finance", url: "/dashboard/finance", icon: Wallet },

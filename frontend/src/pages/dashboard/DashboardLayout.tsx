@@ -1,9 +1,12 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import AppSidebar from "@/components/dashboardComponents/app-sidebar";
 import sqImage from "@/assets/sqImage.jpg"; // Adjust the path as necessary
+import Header from "@/components/dashboardComponents/Header";
 
 export default function DashboardLayout() {
+  const location = useLocation();
+
   return (
     <div className="min-h-screen relative">
       <div
@@ -19,8 +22,11 @@ export default function DashboardLayout() {
       <SidebarProvider>
         <AppSidebar />
         {/* Main content area */}
-        <main className="flex-1 p-6 relative z-10">
-          <Outlet />
+        <main className="flex-1  relative z-10 bg-[#EFF1F5] m-3 rounded-lg shadow-lg">
+          <Header pathname={location.pathname} />
+          <div className="p-4">
+            <Outlet />
+          </div>
         </main>
       </SidebarProvider>
     </div>
