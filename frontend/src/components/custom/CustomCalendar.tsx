@@ -7,7 +7,6 @@ import { Calendar } from "../ui/calendar";
 import { Button } from "../ui/button";
 import {
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -26,7 +25,6 @@ export default function CustomCalendar({
   label,
   control,
   name,
-  description,
 }: CustomCalendarProps) {
   return (
     <FormField
