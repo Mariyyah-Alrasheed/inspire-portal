@@ -74,6 +74,7 @@ export default function Login() {
               src={InspireLogo}
               alt="Inspire Logo"
               className="h-10 w-auto object-contain"
+              onClick={() => navigate("/dashboard")}
             />
             <div className="h-8 w-auto object-contain">
               <TranslateIcon />
