@@ -9,14 +9,21 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Clock, Eye } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 export default function AttendanceCard() {
+  const navigate = useNavigate();
+
   return (
     <CustomCard
       title="Weekly Attendance"
       subtitle="Mar 16 - 22 Mar"
       actionButtons={
-        <Button variant="outline" size="sm" onClick={() => console.log("عرض")}>
+        <Button
+          variant="outline"
+          size="sm"
+          onClick={() => navigate("/dashboard/overview/details/attendance")}
+        >
           <Eye className="w-4 h-4" />
         </Button>
       }

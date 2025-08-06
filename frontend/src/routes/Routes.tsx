@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "../pages/Login";
 import Onboarding from "@/pages/Onboarding";
 import DashboardLayout from "@/pages/dashboard/DashboardLayout";
-import Overview from "@/pages/dashboard/Overview";
+import Overview from "@/pages/dashboard/overview/Overview";
 import Leaves from "@/pages/dashboard/Leaves";
 import CompanyPolicies from "@/pages/dashboard/CompanyPolicies";
 import EmployeeDirectory from "@/pages/dashboard/EmployeeDirectory";
@@ -12,6 +12,7 @@ import HealthInsurance from "@/pages/dashboard/HealthInsurance";
 import Tasks from "@/pages/dashboard/Tasks";
 import Timesheet from "@/pages/dashboard/Timesheet";
 import Travel from "@/pages/dashboard/Travel";
+import AttendanceDetails from "@/pages/dashboard/overview/details/AttendanceDetails";
 
 export default function AppRoutes() {
   return (
@@ -22,6 +23,10 @@ export default function AppRoutes() {
 
         <Route path="/dashboard" element={<DashboardLayout />}>
           <Route index element={<Overview />} /> {/* default */}
+          <Route
+            path="overview/details/attendance"
+            element={<AttendanceDetails />}
+          />
           <Route path="leaves" element={<Leaves />} />
           <Route path="timesheet" element={<Timesheet />} />
           <Route path="expenses" element={<Expenses />} />
